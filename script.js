@@ -89,3 +89,23 @@ function reiniciarJogo() {
   criarTabuleiro();
 }
 
+
+function reiniciarJogo() {
+  // Reseta variáveis globais
+  tentativas = 0;
+  limiteTentativas = 20;
+  paresEncontrados = 0;
+  cartasViradas = [];
+  nomesVirados = [];
+  bloquearTabuleiro = false;
+
+  // Atualiza placares
+  atualizarPlacar();
+  atualizarTentativasRestantes();
+
+  // Embaralha novamente
+  cartasArray.sort(() => Math.random() - 0.5);
+
+  // Recria o tabuleiro
+  criarTabuleiro();
+}
