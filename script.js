@@ -180,3 +180,12 @@ document.getElementById('btn-dica').addEventListener('click', () => {
     });
   }, 3000);
 });
+
+// ======== FUNÇÃO TEMA ESCURO ========
+const botaoTema = document.getElementById('btn-tema');
+botaoTema.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  botaoTema.textContent = document.body.classList.contains('dark-mode')
+    ? '☀️ Modo Claro'
+    : '🌙 Modo Escuro';
+});
