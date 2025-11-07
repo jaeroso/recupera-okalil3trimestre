@@ -20,3 +20,6 @@ let tentativas = 0;
 let bloquearTabuleiro = false;
 let limiteTentativas = 20;
 let paresEncontrados = 0;
+
+// ======== EMBARALHAR ========
+cartasArray.sort(() => Math.random() - 0.5);
