@@ -53,3 +53,39 @@ function criarTabuleiro() {
 
 criarTabuleiro();
 atualizarPlacar();
+
+// ======== FUNÇÃO VIRAR CARTA ========
+function virarCarta(e) {
+  const carta = e.currentTarget;
+  if (bloquearTabuleiro || carta.classList.contains('virada') || carta.classList.contains('matched')) return;
+
+  carta.classList.add('virada');
+  cartasViradas.push(carta);
+  nomesVirados.push(carta.dataset.nome);
+
+  if (cartasViradas.length === 2) {
+    checarPar();
+  }
+}
+// ======== FUNÇÃO REINICIAR ========
+const botaoReiniciar = document.getElementById('btn-reiniciar') || document.getElementById('restart-btn');
+
+if (botaoReiniciar) {
+  botaoReiniciar.addEventListener('click', reiniciarJogo);
+}
+
+function reiniciarJogo() {
+  tentativas = 0;
+  limiteTentativas = 20;
+  paresEncontrados = 0;
+  cartasViradas = [];
+  nomesVirados = [];
+  bloquearTabuleiro = false;
+
+  atualizarPlacar();
+  atualizarTentativasRestantes();
+
+  cartasArray.sort(() => Math.random() - 0.5);
+  criarTabuleiro();
+}
+
